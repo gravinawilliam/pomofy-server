@@ -5,7 +5,7 @@ import { makeFacebookSignInUseCase } from '@factories/use-cases/users/sign-in/fa
 import { makeGoogleSignInUseCase } from '@factories/use-cases/users/sign-in/google-sign-in.use-case.factory';
 
 import { UseCase } from '@domain/use-cases/_shared/use-case';
-import { SignInUseCase, SignInUseCaseDTO } from '@domain/use-cases/users/sign-in/sign-in.use-case';
+import { SignInUseCase, SignInUseCaseDTO } from '@domain/use-cases/users/sign-in.use-case';
 
 export const makeSignInUseCase = (): UseCase<SignInUseCaseDTO.Parameters, SignInUseCaseDTO.Result> =>
   new SignInUseCase(

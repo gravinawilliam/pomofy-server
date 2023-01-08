@@ -3,10 +3,7 @@ import { makeLoggerProvider } from '@factories/providers/logger-provider.factory
 import { makeUsersRepository } from '@factories/repositories/users-repository.factory';
 
 import { UseCase } from '@domain/use-cases/_shared/use-case';
-import {
-  FacebookSignInUseCase,
-  FacebookSignInUseCaseDTO
-} from '@domain/use-cases/users/sign-in/facebook-sign-in.use-case';
+import { FacebookSignInUseCase, FacebookSignInUseCaseDTO } from '@domain/use-cases/users/facebook-sign-in.use-case';
 
 export const makeFacebookSignInUseCase = (): UseCase<
   FacebookSignInUseCaseDTO.Parameters,

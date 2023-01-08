@@ -6,7 +6,7 @@ import { ISendInfoLoggerProvider } from '@contracts/providers/logger/send-info-l
 import { Either, failure, success } from '@shared/utils/either.util';
 
 import { UseCase } from '@use-cases/_shared/use-case';
-import { SignInUseCaseDTO } from '@use-cases/users/sign-in/sign-in.use-case';
+import { SignInUseCaseDTO } from '@use-cases/users/sign-in.use-case';
 import { SignUpUseCaseDTO } from '@use-cases/users/sign-up.use-case';
 
 export class SignUpController extends Controller<SignUpControllerDTO.Parameters, SignUpControllerDTO.Result> {
