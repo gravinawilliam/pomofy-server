@@ -16,6 +16,7 @@
     "check:staged": "lint-staged",
     "check:types": "tsc --pretty --noEmit",
     "commit": "cz",
+    "danger:ci": "danger ci",
     "fix:format": "prettier --check --write --ignore-unknown .",
     "fix:lint": "eslint . --ext .js,.ts --color --fix",
     "prebuild": "rimraf dist",
