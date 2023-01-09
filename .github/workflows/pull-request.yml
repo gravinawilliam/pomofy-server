@@ -67,13 +67,11 @@ jobs:
       - name: 💎 Generate Prisma models
         run: npm run prisma:generate
 
-      - name: 🧪 Run the tests and 📊 Generate coverage report
-        uses: mattallty/jest-github-action@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          test-command: 'npm run test:coverage'
-          coverage-comment: true
+      - name: 🧪 Run the tests and
+        run: npm run test:coverage
+
+      - name: 📊 Generate coverage report
+        uses: codecov/codecov-action@v2
 
   build:
     name: 🧰 Build project
