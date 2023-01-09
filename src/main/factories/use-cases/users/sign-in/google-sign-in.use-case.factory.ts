@@ -2,7 +2,7 @@ import { makeGoogleApiProvider } from '@factories/providers/google-api-provider.
 import { makeLoggerProvider } from '@factories/providers/logger-provider.factory';
 import { makeUsersRepository } from '@factories/repositories/users-repository.factory';
 
-import { GoogleSignInUseCase, GoogleSignInUseCaseDTO } from '@use-cases/users/sign-in/google-sign-in.use-case';
+import { GoogleSignInUseCase, GoogleSignInUseCaseDTO } from '@use-cases/users/google-sign-in.use-case';
 
 import { UseCase } from '@domain/use-cases/_shared/use-case';
 

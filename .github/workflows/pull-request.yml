@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [14.x, 16.x, 18.x]
+        node-version: [18.13.0]
 
     steps:
       - name: ⬇️ Checkout project
@@ -20,10 +20,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: npm
 
       - name: 📥 Install dependencies
-        run: npm ci
+        run: npm install
 
       - name: 💎 Generate Prisma models
         run: npm run prisma:generate
@@ -42,6 +41,8 @@ jobs:
 
       - name: 👩🏻‍💻 Run the danger
         run: npm run danger:ci
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   test:
     name: 🧑‍🔬 Test project
@@ -49,7 +50,7 @@ jobs:
     needs: validate
     strategy:
       matrix:
-        node-version: [14.x, 16.x, 18.x]
+        node-version: [18.13.0]
 
     steps:
       - name: ⬇️ Checkout project
@@ -59,21 +60,18 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: npm
 
       - name: 📥 Install dependencies
-        run: npm ci
+        run: npm install
 
       - name: 💎 Generate Prisma models
         run: npm run prisma:generate
 
-      - name: 🧪 Run the tests and 📊 Generate coverage report
-        uses: mattallty/jest-github-action@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          test-command: 'npm run test:coverage'
-          coverage-comment: true
+      - name: 🧪 Run the tests and
+        run: npm run test:coverage
+
+      - name: 📊 Generate coverage report
+        uses: codecov/codecov-action@v2
 
   build:
     name: 🧰 Build project
@@ -81,7 +79,7 @@ jobs:
     needs: test
     strategy:
       matrix:
-        node-version: [14.x, 16.x, 18.x]
+        node-version: [18.13.0]
 
     steps:
       - name: ⬇️ Checkout project
@@ -91,10 +89,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: npm
 
       - name: 📥 Install dependencies
-        run: npm ci
+        run: npm install
 
       - name: ⚒️ Build project
         run: npm run build
