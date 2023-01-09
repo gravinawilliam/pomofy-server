@@ -41,6 +41,8 @@ jobs:
 
       - name: 👩🏻‍💻 Run the danger
         run: npm run danger:ci
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   test:
     name: 🧑‍🔬 Test project
