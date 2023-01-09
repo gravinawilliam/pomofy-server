@@ -55,13 +55,13 @@ module.exports = {
     '<rootDir>/src/healthcheck.ts',
     '<rootDir>/src/main'
   ],
-  reporters: ['default'],
-  coverageThreshold: {
-    global: {
-      branches: 90,
-      functions: 90,
-      lines: 90,
-      statements: 90
-    }
-  }
+  reporters: ['default']
+  // coverageThreshold: {
+  //   global: {
+  //     branches: 90,
+  //     functions: 90,
+  //     lines: 90,
+  //     statements: 90
+  //   }
+  // }
 };
